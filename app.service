@@ -1,0 +1,16 @@
+[Unit]
+Description = Java app
+StartLimitBurst=5
+StartLimitIntervalSec=200s
+
+[Service]
+Type=simple
+User=app
+Group=app
+WorkingDirectory=/home/app/
+ExecStart=/usr/bin/java -jar /home/app/app.jar some_out_file "Service is working!"
+Restart=on-failure
+RestartSec=30s
+
+[Install]
+WantedBy=default.target
